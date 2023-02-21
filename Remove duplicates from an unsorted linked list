@@ -1,0 +1,48 @@
+Using HashSet:
+
+class Solution
+{
+    //Function to remove duplicates from unsorted linked list.
+    public Node removeDuplicates(Node head) 
+    {
+         // Your code here
+         Node temp=head;
+         HashSet<Integer> set=new HashSet<>();
+         while(temp.next!=null)
+         {
+             set.add(temp.data);
+             if(set.contains(temp.next.data))
+             temp.next=temp.next.next;
+             else
+             temp=temp.next;
+             
+         }
+       
+         return head;
+    }
+}
+
+
+Using HashMap:
+
+class Solution
+{
+    //Function to remove duplicates from unsorted linked list.
+    public Node removeDuplicates(Node head) 
+    {
+         // Your code here
+         Node temp=head;
+         HashMap<Integer, Integer> map=new HashMap<>();
+         while(temp.next!=null)
+         {
+             map.put(temp.data,1);
+             if(map.containsKey(temp.next.data))
+             temp.next=temp.next.next;
+             else
+             temp=temp.next;
+             
+         }
+       
+         return head;
+    }
+}
