@@ -1,0 +1,37 @@
+class Sol
+{
+   public static Node findIntersection(Node head1, Node head2)
+    {
+        // code here.
+        ArrayList<Integer> ans=new ArrayList<>();
+        Node temp1=head1;
+        Node temp2=head2;
+        
+        while(temp1!=null && temp2!=null)
+        {
+            if(temp1.data==temp2.data)
+            {
+                ans.add(temp1.data);
+                temp1=temp1.next;
+                temp2=temp2.next;
+            }
+            else if(temp1.data<temp2.data)
+            {
+                temp1=temp1.next;
+            }
+            else
+            {
+                temp2=temp2.next;
+            }
+        }
+        Collections.reverse(ans);
+        Node head3=null;
+        for(int i=0;i<ans.size();i++)
+        {
+            Node node=new Node(ans.get(i));
+            node.next=head3;
+            head3=node;
+        }
+        return head3;
+    }
+}
