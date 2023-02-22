@@ -1,0 +1,18 @@
+         Node a= head1;
+
+         Node b= head2;
+
+         if(a==null || b==null){
+
+             return 0;  }
+
+         while( a!= b){
+
+             a= a== null? head2: a.next ;
+
+             b= b==null? head1: b.next;   
+             
+         }
+            if(a!=null)
+         return a.data;
+         return -1;
