@@ -1,0 +1,19 @@
+public static boolean isShuffle(String A, String B, String C) {
+        if (C.length() != A.length() + B.length()) {
+            return false;
+        }
+
+        int i = 0, j = 0, k = 0;
+        while (k < C.length()) {
+            if (i < A.length() && C.charAt(k) == A.charAt(i)) {
+                i++;
+            } else if (j < B.length() && C.charAt(k) == B.charAt(j)) {
+                j++;
+            } else {
+                return false;
+            }
+            k++;
+        }
+
+        return true;
+    }
