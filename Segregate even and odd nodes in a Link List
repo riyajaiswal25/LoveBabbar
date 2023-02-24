@@ -1,0 +1,27 @@
+class Solution{
+    Node divide(int N, Node head){
+        // code here
+        Node o=new Node(0);
+        Node e=new Node(0);
+        Node odd=o;
+        Node even=e;
+        Node curr=head;
+        while(curr!=null)
+        {
+            if(curr.data % 2 == 0)
+            {
+                even.next=curr;
+                even=even.next;
+            }
+            else{
+                odd.next=curr;
+                odd=odd.next;
+            }
+            curr=curr.next;
+        }
+        odd.next=null;
+        even.next=o.next;
+        head=e.next;
+        return head;
+    }
+}
